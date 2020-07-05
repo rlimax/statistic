@@ -1,0 +1,157 @@
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.centro{
+			background-image: linear-gradient(green, white);
+			text-align:center;
+			padding: 20px;
+			margin: 0;
+		}
+		.item-centro{
+			display: block;
+			margin-bottom: 10px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		button{
+			background-color: black;
+			width: 150px;
+			height: 30px;
+			border-radius: 10px;
+			color: white;
+			font-weight: bold;
+			border: 2px solid white;
+			margin: 20px 0px;
+		}
+		textarea{
+			border: 2px solid black;
+			text-align: justify;
+			padding: 5px;
+			color: black;
+		}
+		.bord-r{
+			border-right: 1px solid black;
+			width: 20%;
+		}
+		.bord-b{
+			border-bottom: 1px solid black;
+		}
+		.tb{
+			background-color: whitesmoke;
+			color: white;
+			width: 280px;
+			min-height: 100px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 20px;
+			overflow: hidden;
+			word-wrap: break-word;
+		}
+		td{
+			text-align:center;
+		}
+		h1{
+			text-shadow: 0px 2px 4px white;
+		}
+		.span{
+			font-style: oblique;
+			font-size: 10pt;
+			width: 270px;
+			overflow: hidden;
+			word-wrap: break-word;
+			text-align: justify;
+			margin: auto;
+		}
+	</style>
+	<script>
+	var div;
+	var val;
+		function ordem(){
+			menor = 0;
+			y = [];
+			x = val.trim().split(",");
+			cont = 0;
+			while(x.length>0){
+				//console.log("x");
+				menor = Math.min.apply(null,x);
+				if(x[cont]==String(menor)){
+					y.push(x[cont]);
+					x.splice(cont,1);
+				}
+				cont++;
+				if(cont>=x.length){
+					cont = 0;
+				}
+			}
+			return y;
+		}
+		
+		function contar(x){
+			var saida = [];
+			var entrada = x;
+			var	qtd = 0;
+			var anterior;
+			var numero;
+			var quantidade = 0;
+			anterior = entrada[0];
+			for(let i=0; i<entrada.length; i++){
+				numero = entrada[i];
+				if(numero == anterior){
+					qtd++;
+				}else{
+					var obj = {num:0, qtd:0};
+					obj.num = anterior;
+					obj.qtd = qtd;
+					//console.log(obj);
+					saida.push(obj);
+					anterior = entrada[i];
+					qtd = 1;
+				}
+			}
+			var obj = {num:0, qtd:0};
+			obj.num = anterior;
+			obj.qtd = qtd;
+			//console.log(obj);
+			saida.push(obj);
+			return saida;
+		}
+		
+		function gerar(){
+			div = document.getElementById('msg');
+			val = document.getElementById('val').value;
+			console.log(val);
+		
+			if(val!=""){
+				ordenado = ordem();
+				w = contar(ordenado);
+				var string = "<table><tr><th class=\"bord-r\"></th><th class=\"bord-b\" colspan=\"4\">Frequência</th></tr><tr><th class=\"bord-r\">Valor</th><th class=\"bord-r\">Abs.</th><th class=\"bord-r\">Abs. acum.</th><th class=\"bord-r\">Rel.</th><th>Rel. acum.</th></tr>";
+				for(let i=0; i<w.length; i++){
+					string += "<tr><td class=\"bord-r\">"+w[i].num + "</td><td class=\"bord-r\">"+ w[i].qtd+"</td><td class=\"bord-r\"></td><td class=\"bord-r\"></td><td></td></tr>";
+				
+				}
+				string += "</table>";
+				div.innerHTML = string;
+			}
+		}
+	</script>
+</head>
+<body onload="gerar()">
+	<div class="centro">
+		<h1 class="item-centro">Tabela frequência:</h1>
+		<h2 class="item-centro">Valores:</h2>
+		<textarea id="val" class="item-centro" rows="5" cols="30"></textarea>
+		<div class="span">
+			<span>Insira os dados númericos, separados por vírgulas, lembrando que valores com ponto flutuante têm a casa decimal separada por ponto.</span>
+		</div>
+		<button class="item-centro" onclick="gerar()">Processar</button>
+		<div id="msg" class="tb">
+		</div>
+	</div>
+</body>
+</html>
