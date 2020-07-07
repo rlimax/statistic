@@ -1,0 +1,91 @@
+
+.img-icon{
+	width: 100px;
+	height: 100px;
+	margin: auto;
+}
+.jumbo{
+	text-shadow: 2px 2px 2px gray;
+	text-align: center;
+	margin-bottom: 1px;
+}
+.sha{
+	box-shadow: 0px 2px 8px gray;
+}
+.inat{
+	height: 35px;
+	width: 80px;
+	background-color: gray;
+	border-radius: 3px;
+	padding-top: 6px;
+	margin: auto;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.item-centro{
+	display: block;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.button{
+	background-color: black;
+	width: 150px;
+	height: 33px;
+	border-radius: 30px;
+	color: white;
+	font-weight: bold;
+	border: 2px solid white;
+	text-align: center;
+}
+.button:hover{
+	border: 2px solid gray;
+	cursor: pointer;
+}
+textarea{
+	border: 2px solid black;
+	text-align: justify;
+	padding: 10px;
+	color: black;
+}
+.bord-r{
+	border-right: 1px solid black;
+	width: 20%;
+}
+.bord-b{
+	border-bottom: 1px solid black;
+}
+.bord-t{
+	border-top: 1px solid black;
+}
+.tb{
+	background-color: whitesmoke;
+	color: white;
+	width: 280px;
+	min-height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 60px;
+	overflow: hidden;
+	word-wrap: break-word;
+}
+td{
+	text-align:center;
+}
+h1{
+	text-shadow: 0px 2px 4px white;
+}
+.span{
+	font-style: oblique;
+	font-size: 10pt;
+	width: 270px;
+	overflow: hidden;
+	word-wrap: break-word;
+	text-align: justify;
+	margin: auto;
+}

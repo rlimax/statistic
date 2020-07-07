@@ -1,169 +1,39 @@
 <html>
 <head>
-	<title></title>
-	<meta charset="utf-8">
-	<style>
-		body{
-			margin: 0;
-			padding: 0;
-		}
-		.centro{
-			background-image: linear-gradient(green, white);
-			text-align:center;
-			padding: 20px;
-			margin: 0;
-		}
-		.item-centro{
-			display: block;
-			margin-bottom: 10px;
-			margin-left: auto;
-			margin-right: auto;
-		}
-		button{
-			background-color: black;
-			width: 150px;
-			height: 30px;
-			border-radius: 10px;
-			color: white;
-			font-weight: bold;
-			border: 2px solid white;
-			margin: 20px 0px;
-		}
-		textarea{
-			border: 2px solid black;
-			text-align: justify;
-			padding: 5px;
-			color: black;
-		}
-		.bord-r{
-			border-right: 1px solid black;
-			width: 20%;
-		}
-		.bord-b{
-			border-bottom: 1px solid black;
-		}
-		.bord-t{
-			border-top: 1px solid black;
-		}
-		.tb{
-			background-color: whitesmoke;
-			color: white;
-			width: 280px;
-			min-height: 100px;
-			margin-left: auto;
-			margin-right: auto;
-			margin-top: 20px;
-			margin-bottom: 60px;
-			overflow: hidden;
-			word-wrap: break-word;
-		}
-		td{
-			text-align:center;
-		}
-		h1{
-			text-shadow: 0px 2px 4px white;
-		}
-		.span{
-			font-style: oblique;
-			font-size: 10pt;
-			width: 270px;
-			overflow: hidden;
-			word-wrap: break-word;
-			text-align: justify;
-			margin: auto;
-		}
-	</style>
-	<script>
-	var div;
-	var val;
-		function ordem(){
-			menor = 0;
-			y = [];
-			x = val.trim().split(",");
-			cont = 0;
-			while(x.length>0){
-				//console.log(menor);
-				menor = Math.min.apply(null,x);
-				if(x[cont]==(menor)){
-					y.push(x[cont]);
-					x.splice(cont,1);
-				}
-				cont++;
-				if(cont>=x.length){
-					cont = 0;
-				}
-			}
-			return y;
-		}
-		
-		function contar(x){
-			var saida = [];
-			var entrada = x;
-			var	qtd = 0;
-			var anterior;
-			var numero;
-			var quantidade = 0;
-			anterior = entrada[0];
-			for(let i=0; i<entrada.length; i++){
-				numero = entrada[i];
-				if(numero == anterior){
-					qtd++;
-				}else{
-					var obj = {num:0, qtd:0};
-					obj.num = anterior;
-					obj.qtd = qtd;
-					//console.log(obj);
-					saida.push(obj);
-					anterior = entrada[i];
-					qtd = 1;
-				}
-			}
-			var obj = {num:0, qtd:0};
-			obj.num = anterior;
-			obj.qtd = qtd;
-			//console.log(obj);
-			saida.push(obj);
-			return saida;
-		}
-		
-		function gerar(){
-			div = document.getElementById('msg');
-			val = document.getElementById('val').value;
-			//console.log(val);
-			
-			acumula = 0;
-			total = 0;
-			if(val!=""){
-				ordenado = ordem();
-				w = contar(ordenado);
-				for(let i=0; i<w.length; i++){
-					total += w[i].qtd;
-				}
-				console.log(total);
-				var string = "<table><tr><th class=\"bord-r\"></th><th class=\"bord-b\" colspan=\"4\">Frequência</th></tr><tr><th class=\"bord-r\">Valor</th><th class=\"bord-r\">Abs.</th><th class=\"bord-r\">Abs. acum.</th><th class=\"bord-r\">Rel.</th><th>Rel. acum.</th></tr>";
-				for(let i=0; i<w.length; i++){
-					acumula += w[i].qtd;
-					string += "<tr><td class=\"bord-r\">"+w[i].num + "</td><td class=\"bord-r\">"+ w[i].qtd+"</td><td class=\"bord-r\">"+acumula+"</td><td class=\"bord-r\">"+(w[i].qtd/total).toFixed(3)+"</td><td>"+(acumula/total).toFixed(3)+"</td></tr>";
-				}
-				string += "<tr><td class=\"bord-r bord-t\">Total</td><td class=\"bord-r bord-t\">"+acumula+"</td><td class=\"bord-r bord-t\">-</td><td class=\"bord-r bord-t\">"+(acumula/total)+"</td><td class=\"bord-t\">-</td></tr>";
-				string += "</table>";
-				div.innerHTML = string;
-			
-			}
-		}
-	</script>
+	<title>Tabela de frequências</title>
+	<link rel="stylesheet" href="./../css/estilo.css">
+    <script src="../js/tb.js"></script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body onload="gerar()">
-	<div class="centro">
-		<h1 class="item-centro">Tabela frequência:</h1>
-		<h2 class="item-centro">Valores:</h2>
-		<textarea id="val" class="item-centro" rows="5" cols="30"></textarea>
-		<div class="span">
-			<span>Insira os dados númericos, separados por vírgulas, lembrando que valores com ponto flutuante têm a casa decimal separada por ponto (padrão EUA).</span>
+	<div class="jumbotron">
+		<h1 class="jumbo">Tabela frequência:</h1>
+	</div>
+	<div class="container bg-dark pb-3">
+		<div class="row">
+			<h2 class="text-white item-centro mt-4">Valores:</h2>
 		</div>
-		<button class="item-centro" onclick="gerar()">Processar</button>
+		<textarea id="val" class="item-centro" rows="5" cols="25" placeholder="1,2,3,3.5,4,1.2,2,1"></textarea>
+		<div class="span mb-4 text-warning">
+			<span>Insira os dados númericos, separados por vírgulas, lembrando que valores com ponto flutuante têm a casa decimal separada por ponto ex. "1.5,2,1,3,4,2.6..."(padrão EUA).</span>
+		</div>
+		<div class="row item-centro">
+			<div class="item-centro button" onclick="gerar()">Processar</div>
+		</div>
 		<div id="msg" class="tb">
 		</div>
 	</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
