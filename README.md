@@ -12,3 +12,14 @@ Automatização de funções de estatística descritiva.
     <li>Disposição em tabela.</li>
   </ul>
 </ul>
+
+<hr>
+
+<ul>
+<li>Medidas de tendência central</li>
+  <ul>
+    <li>Média.</li>
+    <li>Moda.</li>
+    <li>Mediana.</li>
+  </ul>
+</ul>
