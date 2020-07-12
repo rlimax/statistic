@@ -77,7 +77,7 @@ function gerar(){
 			total += w[i].qtd;
 		}
 		console.log(total);
-		var string = "<table><tr><th class=\"bord-r\"></th><th class=\"bord-b centro\" colspan=\"4\">Frequência</th></tr><tr><th class=\"bord-r\">Valor</th><th class=\"bord-r\">Abs.</th><th class=\"bord-r\">Abs. acum.</th><th class=\"bord-r\">Rel.</th><th>Rel. acum.</th></tr>";
+		var string = "<table><tr><th class=\"bord-r\"></th><th class=\"bord-b centro\" colspan=\"4\">Frequência</th></tr><tr><th class=\"bord-r centro\">Valor</th><th class=\"bord-r\">Abs.</th><th class=\"bord-r\">Abs. acum.</th><th class=\"bord-r\">Rel.</th><th>Rel. acum.</th></tr>";
 		for(let i=0; i<w.length; i++){
 			acumula += w[i].qtd;
 			string += "<tr><td class=\"bord-r\">"+w[i].num + "</td><td class=\"bord-r\">"+ w[i].qtd+"</td><td class=\"bord-r\">"+acumula+"</td><td class=\"bord-r\">"+(w[i].qtd/total).toFixed(3)+"</td><td>"+(acumula/total).toFixed(3)+"</td></tr>";
