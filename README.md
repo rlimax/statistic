@@ -1,6 +1,8 @@
 # statistic
 Projeto de estudos de estatística com javascript.
 
+![inicial](https://raw.githubusercontent.com/rlimax/statistic/master/img/modelo.png)
+
 Automatização de funções de estatística descritiva.
 
 <ul>
