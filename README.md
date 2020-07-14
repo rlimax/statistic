@@ -3,6 +3,7 @@ Projeto de estudos de estatística com javascript.
 
 ![inicial](https://raw.githubusercontent.com/rlimax/statistic/master/img/modelo.png)
 
+
 Automatização de funções de estatística descritiva.
 
 <ul>
@@ -25,3 +26,9 @@ Automatização de funções de estatística descritiva.
     <li>Mediana.</li>
   </ul>
 </ul>
+
+
+
+
+
+![parteii](https://raw.githubusercontent.com/rlimax/statistic/master/img/modelo2.png)
