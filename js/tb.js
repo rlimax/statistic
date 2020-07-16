@@ -65,6 +65,7 @@ function contar(x){
 
 function gerar(){
 	div = document.getElementById('msg');
+	div2 = document.getElementById('msg2');
 	val = document.getElementById('val').value;
 	//console.log(val);
 	
@@ -85,6 +86,10 @@ function gerar(){
 		string += "<tr><td class=\"bord-r bord-t\">Total</td><td class=\"bord-r bord-t\">"+acumula+"</td><td class=\"bord-r bord-t\">-</td><td class=\"bord-r bord-t\">"+(acumula/total)+"</td><td class=\"bord-t\">-</td></tr>";
 		string += "</table>";
 		div.innerHTML = string;
-	
+		
+		
+		
+		
+		div2.innerHTML = "Implementar tabela de frequência com amplitude e classes.";
 	}
 }
