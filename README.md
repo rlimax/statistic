@@ -32,3 +32,15 @@ Automatização de funções de estatística descritiva.
 
 
 ![parteii](https://raw.githubusercontent.com/rlimax/statistic/master/img/modelo2.png)
+
+
+<hr>
+
+<ul>
+<li>Medidas de Dispersão</li>
+  <ul>
+    <li>Desvio médio.</li>
+    <li>Variância.</li>
+    <li>Desvio padrão.</li>
+  </ul>
+</ul>
