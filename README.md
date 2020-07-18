@@ -44,3 +44,8 @@ Automatização de funções de estatística descritiva.
     <li>Desvio padrão.</li>
   </ul>
 </ul>
+
+
+<hr>
+
+Probabilidade
