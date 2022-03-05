@@ -95,7 +95,7 @@ function gerar(){
 
 
 
-		var string2 = "<h6 class=\"font-weight-bold\">FREQUENCIA AGRUPADA POR CLASSE - Amplitide: ";
+		var string2 = "<h6 class=\"font-weight-bold\">FREQUENCIA AGRUPADA POR CLASSE - Amplitude: ";
 		if(ordenado.length>14 && w.length>3){
 			relativoTotal = ordenado.length;
 			var classe = [];
